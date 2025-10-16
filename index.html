@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শুভ বিজয়ার আমন্ত্রণ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Tiro+Bangla&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the Bengali font and animations */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        .font-bengali {
+            font-family: 'Tiro Bangla', serif;
+        }
+        .blinking-cursor {
+            font-weight: 100;
+            font-size: 2.5rem;
+            color: #f59e0b;
+            animation: 1s blink step-end infinite;
+        }
+        @keyframes blink {
+            from, to { color: transparent; }
+            50% { color: #f59e0b; }
+        }
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(255, 193, 7, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #f59e0b;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Hide scrollbar */
+        body { -ms-overflow-style: none; scrollbar-width: none; }
+        body::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-hidden">
+
+    <!-- Entry Screen with Rangoli -->
+    <div id="entry-screen" class="fixed inset-0 z-20 flex flex-col items-center justify-center bg-gradient-to-br from-red-900 via-gray-900 to-black transition-opacity duration-1000">
+        <h2 class="text-3xl md:text-5xl font-bold text-amber-300 mb-4 font-bengali">শুভ বিজয়া</h2>
+        <div id="rangoli-container" class="cursor-pointer rounded-full p-2 pulse-animation">
+            <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="#831843"/><circle cx="100" cy="100" r="75" fill="#fde047"/>
+                <path d="M100 20 L140 60 L100 100 L60 60 Z" fill="#dc2626"/><path d="M100 180 L140 140 L100 100 L60 140 Z" fill="#dc2626"/>
+                <path d="M20 100 L60 140 L100 100 L60 60 Z" fill="#dc2626"/><path d="M180 100 L140 140 L100 100 L140 60 Z" fill="#dc2626"/>
+                <circle cx="100" cy="100" r="40" fill="#f97316"/><circle cx="100" cy="100" r="20" fill="#fefce8"/>
+            </svg>
+        </div>
+        <p class="mt-8 text-xl text-yellow-200 animate-pulse font-bengali">প্রবেশ করতে রঙ্গোলি স্পর্শ করুন</p>
+    </div>
+
+    <!-- Main Invitation Content -->
+    <div id="main-content" class="hidden min-h-screen w-full flex flex-col items-center justify-center p-4 bg-gradient-to-t from-orange-900 via-rose-900 to-black overflow-y-auto">
+        <div class="w-full max-w-2xl text-center flex flex-col items-center">
+            <div class="mb-6">
+                <img src="https://images.pexels.com/photos/9609835/pexels-photo-9609835.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Veg Dish" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-4 border-amber-400 shadow-xl shadow-orange-500/30" onerror="this.onerror=null;this.src='https://placehold.co/256x256/1e1b4b/fde047?text=Veg+Dish';">
+            </div>
+            
+            <div class="h-24 md:h-32 flex items-center justify-center space-x-4">
+                <h1 id="invitation-text" class="text-3xl md:text-4xl text-yellow-200 font-bengali leading-relaxed"></h1><span id="cursor" class="blinking-cursor">|</span>
+                <button id="tts-button" class="hidden text-amber-300 hover:text-amber-100 transition duration-300" aria-label="Read invitation aloud">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9 9 0 0119 12a9 9 0 01-2.929 9.071 1 1 0 01-1.414-1.414A7 7 0 0017 12a7 7 0 00-2.343-5.657 1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5 5 0 0115 12a5 5 0 01-1.757 3.939 1 1 0 11-1.415-1.414A3 3 0 0013 12a3 3 0 00-1.05-2.293 1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                </button>
+            </div>
+
+            <!-- Gemini API Features -->
+            <div id="gemini-features" class="mt-6 hidden w-full max-w-md">
+                <button id="wish-button" class="bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 transform hover:scale-105 shadow-lg w-full">
+                    ✨ বিজয়ার শুভেচ্ছা তৈরি করুন
+                </button>
+                <div id="wish-display" class="mt-4 p-4 bg-rose-900/30 rounded-lg text-left hidden text-rose-100 relative">
+                    <div id="wish-loader" class="flex justify-center items-center">
+                        <div class="loader"></div>
+                    </div>
+                    <p id="wish-content"></p>
+                    <button id="copy-button" class="hidden absolute top-2 right-2 bg-amber-600 hover:bg-amber-700 text-white font-bold py-1 px-2 rounded text-xs transition">
+                        Copy
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer Section -->
+            <div class="mt-10 border-t border-amber-500/30 w-full pt-6">
+                <p class="text-lg text-rose-200 mb-4 font-bengali">আমন্ত্রণে "DR. ROY"</p>
+                <div class="flex items-center justify-center space-x-6">
+                    <a href="https://www.instagram.com/_rajaaaaa_0" target="_blank" class="text-gray-300 hover:text-white transition" aria-label="Instagram"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C8.74 2 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.784.305-1.455.717-2.126 1.388S.935 3.356.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.784.718 1.455 1.388 2.126s1.342.935 2.126 1.388c.765.297 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.784-.305 1.455-.718 2.126-1.388s.935-1.342 1.388-2.126c.297-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.148-.558-2.913-.305-.784-.718-1.455-1.388-2.126S20.644.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.163c3.204 0 3.584.012 4.85.07 1.17.053 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.82.896 1.381.164.422.36 1.057.413 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.053 1.17-.249 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.82.679-1.381.896-.422.164-1.057.36-2.227.413-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.053-1.805-.249-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.82-.896-1.381-.164-.422-.36-1.057-.413-2.227-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.053-1.17.249 1.805.413 2.227.217-.562.477.96.896 1.382.42-.419.82-.679 1.381-.896.422-.164 1.057.36 2.227-.413 1.266-.058 1.646-.07 4.85-.07zM12 6.87c-2.761 0-5 2.239-5 5s2.239 5 5 5 5-2.239 5-5-2.239-5-5-5zm0 8.132c-1.701 0-3.071-1.369-3.071-3.071S10.299 8.929 12 8.929s3.071 1.369 3.071 3.071-1.37 3.071-3.071 3.071zm5.235-7.819c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z" clip-rule="evenodd" /></svg></a>
+                    <a href="https://t.me/Sorry_my_jaan" target="_blank" class="text-gray-300 hover:text-white transition" aria-label="Telegram"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0C5.356 0 0 5.356 0 11.944s5.356 11.944 11.944 11.944 11.944-5.356 11.944-11.944S18.532 0 11.944 0zm5.49 6.239l-1.43 6.742c-.156.736-.56 1.01-1.14.624l-2.18-1.602-1.056 1.018c-.117.117-.21.21-.402.21s-.284-.093-.402-.21l.21-2.22 3.86-3.483c.175-.156-.058-.242-.31-.093L8.103 13.06l-2.13-1.018c-.71-.233-.71-.735.137-1.018l8.918-3.483c.602-.233 1.03.156.864.9z"/></svg></a>
+                    <a href="https://www.facebook.com/RajaRdas.Theking" target="_blank" class="text-gray-300 hover:text-white transition" aria-label="Facebook"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.29h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const entryScreen = document.getElementById('entry-screen');
+        const mainContent = document.getElementById('main-content');
+        const rangoli = document.getElementById('rangoli-container');
+        const invitationTextElement = document.getElementById('invitation-text');
+        const cursor = document.getElementById('cursor');
+        const ttsButton = document.getElementById('tts-button');
+        const geminiFeatures = document.getElementById('gemini-features');
+        const wishButton = document.getElementById('wish-button');
+        const wishDisplay = document.getElementById('wish-display');
+        const wishLoader = document.getElementById('wish-loader');
+        const wishContent = document.getElementById('wish-content');
+        const copyButton = document.getElementById('copy-button');
+
+        const fullText = "আমন্ত্রণ রইলো। সবাই এসো ১৭ই অক্টোবর, সন্ধ্যা ৭ টায়।";
+        let charIndex = 0;
+        let audio; // To hold the generated audio object
+
+        const apiKey = ""; // This will be handled by the environment, no key needed here.
+
+        function typeText() {
+            if (charIndex < fullText.length) {
+                invitationTextElement.textContent += fullText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeText, 120);
+            } else {
+                cursor.style.display = 'none';
+                ttsButton.classList.remove('hidden');
+                geminiFeatures.classList.remove('hidden');
+            }
+        }
+
+        rangoli.addEventListener('click', () => {
+            entryScreen.style.opacity = '0';
+            setTimeout(() => {
+                entryScreen.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                setTimeout(typeText, 500);
+            }, 1000);
+        });
+
+        function base64ToArrayBuffer(base64) {
+            const binaryString = window.atob(base64);
+            const len = binaryString.length;
+            const bytes = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+            return bytes.buffer;
+        }
+
+        function pcmToWav(pcmData, sampleRate) {
+            const pcm16 = new Int16Array(pcmData);
+            const header = new ArrayBuffer(44);
+            const d = new DataView(header);
+            d.setUint8(0, 0x52); d.setUint8(1, 0x49); d.setUint8(2, 0x46); d.setUint8(3, 0x46); // "RIFF"
+            d.setUint32(4, 36 + pcm16.byteLength, true);
+            d.setUint8(8, 0x57); d.setUint8(9, 0x41); d.setUint8(10, 0x56); d.setUint8(11, 0x45); // "WAVE"
+            d.setUint8(12, 0x66); d.setUint8(13, 0x6d); d.setUint8(14, 0x74); d.setUint8(15, 0x20); // "fmt "
+            d.setUint32(16, 16, true);
+            d.setUint16(20, 1, true); d.setUint16(22, 1, true);
+            d.setUint32(24, sampleRate, true);
+            d.setUint32(28, sampleRate * 2, true);
+            d.setUint16(32, 2, true); d.setUint16(34, 16, true);
+            d.setUint8(36, 0x64); d.setUint8(37, 0x61); d.setUint8(38, 0x74); d.setUint8(39, 0x61); // "data"
+            d.setUint32(40, pcm16.byteLength, true);
+            return new Blob([header, pcm16], { type: 'audio/wav' });
+        }
+        
+        ttsButton.addEventListener('click', async () => {
+             if (audio && !audio.paused) { audio.pause(); audio.currentTime = 0; }
+             if (audio && audio.paused) { audio.play(); return; }
+
+            ttsButton.disabled = true;
+            ttsButton.classList.add('animate-pulse');
+            
+            try {
+                const payload = {
+                    contents: [{ parts: [{ text: `Say in a warm, inviting Bengali voice: ${fullText}` }] }],
+                    generationConfig: { responseModalities: ["AUDIO"], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Sadachbia" } } } },
+                };
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${apiKey}`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const result = await response.json();
+                
+                const part = result?.candidates?.[0]?.content?.parts?.[0];
+                const audioData = part?.inlineData?.data;
+                const mimeType = part?.inlineData?.mimeType;
+
+                if (audioData && mimeType?.startsWith("audio/")) {
+                    const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)[1], 10);
+                    const pcmData = base64ToArrayBuffer(audioData);
+                    const wavBlob = pcmToWav(pcmData, sampleRate);
+                    const audioUrl = URL.createObjectURL(wavBlob);
+                    audio = new Audio(audioUrl);
+                    audio.play();
+                    audio.onended = () => { ttsButton.disabled = false; ttsButton.classList.remove('animate-pulse'); };
+                } else { throw new Error("Audio data not found in response."); }
+            } catch (error) {
+                console.error("TTS Error:", error);
+                ttsButton.disabled = false;
+                ttsButton.classList.remove('animate-pulse');
+            }
+        });
+
+        wishButton.addEventListener('click', async () => {
+            wishDisplay.classList.remove('hidden');
+            wishContent.textContent = '';
+            copyButton.classList.add('hidden');
+            wishLoader.style.display = 'flex';
+            wishButton.disabled = true;
+            try {
+                const userQuery = "Generate a short (2-3 lines), warm, and traditional Subho Bijoya greeting in the Bengali language and script. The wish is from a guest to the host, DR. ROY, for his invitation.";
+                const payload = { contents: [{ parts: [{ text: userQuery }] }] };
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (text) {
+                    wishContent.innerHTML = text.replace(/\n/g, '<br>');
+                    copyButton.classList.remove('hidden');
+                } else {
+                    wishContent.textContent = "Could not generate a wish at this time.";
+                }
+            } catch (error) {
+                console.error("Wish Generation Error:", error);
+                wishContent.textContent = "An error occurred while fetching the wish.";
+            } finally {
+                wishLoader.style.display = 'none';
+                wishButton.disabled = false;
+            }
+        });
+
+        copyButton.addEventListener('click', () => {
+            const textToCopy = wishContent.innerText;
+            const tempTextarea = document.createElement('textarea');
+            tempTextarea.value = textToCopy;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextarea);
+            copyButton.textContent = 'Copied!';
+            setTimeout(() => { copyButton.textContent = 'Copy'; }, 2000);
+        });
+
+    });
+    </script>
+</body>
+</html>
+
